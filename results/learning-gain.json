@@ -1,0 +1,4519 @@
+{
+  "protocol": {
+    "model": "frozen DINOv3 ViT-S/16 layer 3; weights never updated",
+    "learning": "only confirmed target's patch-feature memory is blended in selected overlapping regions",
+    "policies": {
+      "frozen": "no confirmed update",
+      "level11_once": "update after confirmed level 11 only",
+      "continual": "update after confirmed levels 11, 12, 16, 20"
+    },
+    "metric": "pre-update top1 among three known candidates at levels 12, 16, 20; accepted_correct additionally requires validation-calibrated presence threshold",
+    "limitation": "same synthetic renderer; known proposals; confirmation oracle; previously explored sessions, not blind holdout"
+  },
+  "datasets": [
+    {
+      "dataset": "data/upgrade-confirmation-dataset.json",
+      "results": {
+        "grid": {
+          "policies": {
+            "frozen": {
+              "top1_future_out_of_24": 2,
+              "accepted_correct_future_out_of_24": 0,
+              "top1_by_level_out_of_8": {
+                "11": 0,
+                "12": 1,
+                "16": 1,
+                "20": 0
+              },
+              "accepted_correct_by_level_out_of_8": {
+                "11": 0,
+                "12": 0,
+                "16": 0,
+                "20": 0
+              },
+              "old_level10_top1_out_of_8": 8,
+              "absent_false_positives_out_of_8": 0,
+              "mean_updated_regions_per_confirmation": 0,
+              "screens": [
+                {
+                  "session": "test-01",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.012319
+                },
+                {
+                  "session": "test-01",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.067353
+                },
+                {
+                  "session": "test-01",
+                  "level": 16,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.000775
+                },
+                {
+                  "session": "test-01",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.014234
+                },
+                {
+                  "session": "test-02",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.024007
+                },
+                {
+                  "session": "test-02",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.018674
+                },
+                {
+                  "session": "test-02",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.036547
+                },
+                {
+                  "session": "test-02",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.001675
+                },
+                {
+                  "session": "test-03",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.04823
+                },
+                {
+                  "session": "test-03",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.059747
+                },
+                {
+                  "session": "test-03",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.081867
+                },
+                {
+                  "session": "test-03",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.069703
+                },
+                {
+                  "session": "test-04",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.026308
+                },
+                {
+                  "session": "test-04",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.022795
+                },
+                {
+                  "session": "test-04",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.001476
+                },
+                {
+                  "session": "test-04",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.021274
+                },
+                {
+                  "session": "test-05",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.040189
+                },
+                {
+                  "session": "test-05",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.001813
+                },
+                {
+                  "session": "test-05",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.008249
+                },
+                {
+                  "session": "test-05",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.040416
+                },
+                {
+                  "session": "test-06",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.010202
+                },
+                {
+                  "session": "test-06",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.018014
+                },
+                {
+                  "session": "test-06",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.070933
+                },
+                {
+                  "session": "test-06",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.0021
+                },
+                {
+                  "session": "test-07",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.054539
+                },
+                {
+                  "session": "test-07",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.02266
+                },
+                {
+                  "session": "test-07",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.021696
+                },
+                {
+                  "session": "test-07",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.05195
+                },
+                {
+                  "session": "test-08",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.018161
+                },
+                {
+                  "session": "test-08",
+                  "level": 12,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.018691
+                },
+                {
+                  "session": "test-08",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.038084
+                },
+                {
+                  "session": "test-08",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.033172
+                }
+              ]
+            },
+            "level11_once": {
+              "top1_future_out_of_24": 8,
+              "accepted_correct_future_out_of_24": 0,
+              "top1_by_level_out_of_8": {
+                "11": 0,
+                "12": 2,
+                "16": 3,
+                "20": 3
+              },
+              "accepted_correct_by_level_out_of_8": {
+                "11": 0,
+                "12": 0,
+                "16": 0,
+                "20": 0
+              },
+              "old_level10_top1_out_of_8": 8,
+              "absent_false_positives_out_of_8": 0,
+              "mean_updated_regions_per_confirmation": 57.25,
+              "screens": [
+                {
+                  "session": "test-01",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.012319
+                },
+                {
+                  "session": "test-01",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.046598
+                },
+                {
+                  "session": "test-01",
+                  "level": 16,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.003762
+                },
+                {
+                  "session": "test-01",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.007456
+                },
+                {
+                  "session": "test-02",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.024007
+                },
+                {
+                  "session": "test-02",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.020483
+                },
+                {
+                  "session": "test-02",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.029705
+                },
+                {
+                  "session": "test-02",
+                  "level": 20,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.00385
+                },
+                {
+                  "session": "test-03",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.04823
+                },
+                {
+                  "session": "test-03",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.023879
+                },
+                {
+                  "session": "test-03",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.029872
+                },
+                {
+                  "session": "test-03",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.03566
+                },
+                {
+                  "session": "test-04",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.026308
+                },
+                {
+                  "session": "test-04",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.014345
+                },
+                {
+                  "session": "test-04",
+                  "level": 16,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.002496
+                },
+                {
+                  "session": "test-04",
+                  "level": 20,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.00237
+                },
+                {
+                  "session": "test-05",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.040189
+                },
+                {
+                  "session": "test-05",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.001211
+                },
+                {
+                  "session": "test-05",
+                  "level": 16,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.000819
+                },
+                {
+                  "session": "test-05",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.015765
+                },
+                {
+                  "session": "test-06",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.010202
+                },
+                {
+                  "session": "test-06",
+                  "level": 12,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.001462
+                },
+                {
+                  "session": "test-06",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.026489
+                },
+                {
+                  "session": "test-06",
+                  "level": 20,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.004707
+                },
+                {
+                  "session": "test-07",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.054539
+                },
+                {
+                  "session": "test-07",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.000408
+                },
+                {
+                  "session": "test-07",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.003224
+                },
+                {
+                  "session": "test-07",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.02549
+                },
+                {
+                  "session": "test-08",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.018161
+                },
+                {
+                  "session": "test-08",
+                  "level": 12,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.010483
+                },
+                {
+                  "session": "test-08",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.021994
+                },
+                {
+                  "session": "test-08",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.005266
+                }
+              ],
+              "vs_frozen_future": {
+                "wrong_to_right": 6,
+                "right_to_wrong": 0
+              }
+            },
+            "continual": {
+              "top1_future_out_of_24": 7,
+              "accepted_correct_future_out_of_24": 1,
+              "top1_by_level_out_of_8": {
+                "11": 0,
+                "12": 2,
+                "16": 2,
+                "20": 3
+              },
+              "accepted_correct_by_level_out_of_8": {
+                "11": 0,
+                "12": 0,
+                "16": 0,
+                "20": 1
+              },
+              "old_level10_top1_out_of_8": 8,
+              "absent_false_positives_out_of_8": 0,
+              "mean_updated_regions_per_confirmation": 31.94,
+              "screens": [
+                {
+                  "session": "test-01",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.012319
+                },
+                {
+                  "session": "test-01",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.046598
+                },
+                {
+                  "session": "test-01",
+                  "level": 16,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.006158
+                },
+                {
+                  "session": "test-01",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.009607
+                },
+                {
+                  "session": "test-02",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.024007
+                },
+                {
+                  "session": "test-02",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.020483
+                },
+                {
+                  "session": "test-02",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.009487
+                },
+                {
+                  "session": "test-02",
+                  "level": 20,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.000975
+                },
+                {
+                  "session": "test-03",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.04823
+                },
+                {
+                  "session": "test-03",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.023879
+                },
+                {
+                  "session": "test-03",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.022257
+                },
+                {
+                  "session": "test-03",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.023211
+                },
+                {
+                  "session": "test-04",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.026308
+                },
+                {
+                  "session": "test-04",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.014345
+                },
+                {
+                  "session": "test-04",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.000463
+                },
+                {
+                  "session": "test-04",
+                  "level": 20,
+                  "top1": true,
+                  "accepted_correct": true,
+                  "target_margin": 0.004237
+                },
+                {
+                  "session": "test-05",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.040189
+                },
+                {
+                  "session": "test-05",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.001211
+                },
+                {
+                  "session": "test-05",
+                  "level": 16,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.001055
+                },
+                {
+                  "session": "test-05",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.014288
+                },
+                {
+                  "session": "test-06",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.010202
+                },
+                {
+                  "session": "test-06",
+                  "level": 12,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.001462
+                },
+                {
+                  "session": "test-06",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.027847
+                },
+                {
+                  "session": "test-06",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.001899
+                },
+                {
+                  "session": "test-07",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.054539
+                },
+                {
+                  "session": "test-07",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.000408
+                },
+                {
+                  "session": "test-07",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.00384
+                },
+                {
+                  "session": "test-07",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.024486
+                },
+                {
+                  "session": "test-08",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.018161
+                },
+                {
+                  "session": "test-08",
+                  "level": 12,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.010483
+                },
+                {
+                  "session": "test-08",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.022952
+                },
+                {
+                  "session": "test-08",
+                  "level": 20,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.001229
+                }
+              ],
+              "vs_frozen_future": {
+                "wrong_to_right": 5,
+                "right_to_wrong": 0
+              }
+            }
+          },
+          "validation_change_threshold": 0.10331628918647766,
+          "validation_presence_cutoff": 0.9932874143123627
+        },
+        "edge": {
+          "policies": {
+            "frozen": {
+              "top1_future_out_of_24": 2,
+              "accepted_correct_future_out_of_24": 0,
+              "top1_by_level_out_of_8": {
+                "11": 0,
+                "12": 1,
+                "16": 1,
+                "20": 0
+              },
+              "accepted_correct_by_level_out_of_8": {
+                "11": 0,
+                "12": 0,
+                "16": 0,
+                "20": 0
+              },
+              "old_level10_top1_out_of_8": 8,
+              "absent_false_positives_out_of_8": 0,
+              "mean_updated_regions_per_confirmation": 0,
+              "screens": [
+                {
+                  "session": "test-01",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.012319
+                },
+                {
+                  "session": "test-01",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.067353
+                },
+                {
+                  "session": "test-01",
+                  "level": 16,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.000775
+                },
+                {
+                  "session": "test-01",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.014234
+                },
+                {
+                  "session": "test-02",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.024007
+                },
+                {
+                  "session": "test-02",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.018674
+                },
+                {
+                  "session": "test-02",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.036547
+                },
+                {
+                  "session": "test-02",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.001675
+                },
+                {
+                  "session": "test-03",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.04823
+                },
+                {
+                  "session": "test-03",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.059747
+                },
+                {
+                  "session": "test-03",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.081867
+                },
+                {
+                  "session": "test-03",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.069703
+                },
+                {
+                  "session": "test-04",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.026308
+                },
+                {
+                  "session": "test-04",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.022795
+                },
+                {
+                  "session": "test-04",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.001476
+                },
+                {
+                  "session": "test-04",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.021274
+                },
+                {
+                  "session": "test-05",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.040189
+                },
+                {
+                  "session": "test-05",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.001813
+                },
+                {
+                  "session": "test-05",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.008249
+                },
+                {
+                  "session": "test-05",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.040416
+                },
+                {
+                  "session": "test-06",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.010202
+                },
+                {
+                  "session": "test-06",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.018014
+                },
+                {
+                  "session": "test-06",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.070933
+                },
+                {
+                  "session": "test-06",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.0021
+                },
+                {
+                  "session": "test-07",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.054539
+                },
+                {
+                  "session": "test-07",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.02266
+                },
+                {
+                  "session": "test-07",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.021696
+                },
+                {
+                  "session": "test-07",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.05195
+                },
+                {
+                  "session": "test-08",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.018161
+                },
+                {
+                  "session": "test-08",
+                  "level": 12,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.018691
+                },
+                {
+                  "session": "test-08",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.038084
+                },
+                {
+                  "session": "test-08",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.033172
+                }
+              ]
+            },
+            "level11_once": {
+              "top1_future_out_of_24": 7,
+              "accepted_correct_future_out_of_24": 0,
+              "top1_by_level_out_of_8": {
+                "11": 0,
+                "12": 1,
+                "16": 3,
+                "20": 3
+              },
+              "accepted_correct_by_level_out_of_8": {
+                "11": 0,
+                "12": 0,
+                "16": 0,
+                "20": 0
+              },
+              "old_level10_top1_out_of_8": 8,
+              "absent_false_positives_out_of_8": 0,
+              "mean_updated_regions_per_confirmation": 59.0,
+              "screens": [
+                {
+                  "session": "test-01",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.012319
+                },
+                {
+                  "session": "test-01",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.046324
+                },
+                {
+                  "session": "test-01",
+                  "level": 16,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.003756
+                },
+                {
+                  "session": "test-01",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.006934
+                },
+                {
+                  "session": "test-02",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.024007
+                },
+                {
+                  "session": "test-02",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.020895
+                },
+                {
+                  "session": "test-02",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.029592
+                },
+                {
+                  "session": "test-02",
+                  "level": 20,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.003726
+                },
+                {
+                  "session": "test-03",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.04823
+                },
+                {
+                  "session": "test-03",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.018863
+                },
+                {
+                  "session": "test-03",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.028041
+                },
+                {
+                  "session": "test-03",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.033879
+                },
+                {
+                  "session": "test-04",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.026308
+                },
+                {
+                  "session": "test-04",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.014674
+                },
+                {
+                  "session": "test-04",
+                  "level": 16,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.002645
+                },
+                {
+                  "session": "test-04",
+                  "level": 20,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.001777
+                },
+                {
+                  "session": "test-05",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.040189
+                },
+                {
+                  "session": "test-05",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.001022
+                },
+                {
+                  "session": "test-05",
+                  "level": 16,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.00065
+                },
+                {
+                  "session": "test-05",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.018239
+                },
+                {
+                  "session": "test-06",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.010202
+                },
+                {
+                  "session": "test-06",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.000481
+                },
+                {
+                  "session": "test-06",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.02559
+                },
+                {
+                  "session": "test-06",
+                  "level": 20,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.002479
+                },
+                {
+                  "session": "test-07",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.054539
+                },
+                {
+                  "session": "test-07",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.002144
+                },
+                {
+                  "session": "test-07",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.002724
+                },
+                {
+                  "session": "test-07",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.024074
+                },
+                {
+                  "session": "test-08",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.018161
+                },
+                {
+                  "session": "test-08",
+                  "level": 12,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.010252
+                },
+                {
+                  "session": "test-08",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.021034
+                },
+                {
+                  "session": "test-08",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.004265
+                }
+              ],
+              "vs_frozen_future": {
+                "wrong_to_right": 5,
+                "right_to_wrong": 0
+              }
+            },
+            "continual": {
+              "top1_future_out_of_24": 6,
+              "accepted_correct_future_out_of_24": 0,
+              "top1_by_level_out_of_8": {
+                "11": 0,
+                "12": 1,
+                "16": 2,
+                "20": 3
+              },
+              "accepted_correct_by_level_out_of_8": {
+                "11": 0,
+                "12": 0,
+                "16": 0,
+                "20": 0
+              },
+              "old_level10_top1_out_of_8": 8,
+              "absent_false_positives_out_of_8": 0,
+              "mean_updated_regions_per_confirmation": 32.5,
+              "screens": [
+                {
+                  "session": "test-01",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.012319
+                },
+                {
+                  "session": "test-01",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.046324
+                },
+                {
+                  "session": "test-01",
+                  "level": 16,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.003158
+                },
+                {
+                  "session": "test-01",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.009441
+                },
+                {
+                  "session": "test-02",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.024007
+                },
+                {
+                  "session": "test-02",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.020895
+                },
+                {
+                  "session": "test-02",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.010568
+                },
+                {
+                  "session": "test-02",
+                  "level": 20,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.000622
+                },
+                {
+                  "session": "test-03",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.04823
+                },
+                {
+                  "session": "test-03",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.018863
+                },
+                {
+                  "session": "test-03",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.023786
+                },
+                {
+                  "session": "test-03",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.022148
+                },
+                {
+                  "session": "test-04",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.026308
+                },
+                {
+                  "session": "test-04",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.014674
+                },
+                {
+                  "session": "test-04",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.00059
+                },
+                {
+                  "session": "test-04",
+                  "level": 20,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.004294
+                },
+                {
+                  "session": "test-05",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.040189
+                },
+                {
+                  "session": "test-05",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.001022
+                },
+                {
+                  "session": "test-05",
+                  "level": 16,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.000835
+                },
+                {
+                  "session": "test-05",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.015006
+                },
+                {
+                  "session": "test-06",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.010202
+                },
+                {
+                  "session": "test-06",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.000481
+                },
+                {
+                  "session": "test-06",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.029875
+                },
+                {
+                  "session": "test-06",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.005283
+                },
+                {
+                  "session": "test-07",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.054539
+                },
+                {
+                  "session": "test-07",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.002144
+                },
+                {
+                  "session": "test-07",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.001891
+                },
+                {
+                  "session": "test-07",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.023566
+                },
+                {
+                  "session": "test-08",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.018161
+                },
+                {
+                  "session": "test-08",
+                  "level": 12,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.010252
+                },
+                {
+                  "session": "test-08",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.021443
+                },
+                {
+                  "session": "test-08",
+                  "level": 20,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.007058
+                }
+              ],
+              "vs_frozen_future": {
+                "wrong_to_right": 4,
+                "right_to_wrong": 0
+              }
+            }
+          },
+          "validation_change_threshold": 0.09672003984451294,
+          "validation_presence_cutoff": 0.9932874143123627
+        },
+        "medoid": {
+          "policies": {
+            "frozen": {
+              "top1_future_out_of_24": 2,
+              "accepted_correct_future_out_of_24": 0,
+              "top1_by_level_out_of_8": {
+                "11": 0,
+                "12": 1,
+                "16": 1,
+                "20": 0
+              },
+              "accepted_correct_by_level_out_of_8": {
+                "11": 0,
+                "12": 0,
+                "16": 0,
+                "20": 0
+              },
+              "old_level10_top1_out_of_8": 8,
+              "absent_false_positives_out_of_8": 0,
+              "mean_updated_regions_per_confirmation": 0,
+              "screens": [
+                {
+                  "session": "test-01",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.012319
+                },
+                {
+                  "session": "test-01",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.067353
+                },
+                {
+                  "session": "test-01",
+                  "level": 16,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.000775
+                },
+                {
+                  "session": "test-01",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.014234
+                },
+                {
+                  "session": "test-02",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.024007
+                },
+                {
+                  "session": "test-02",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.018674
+                },
+                {
+                  "session": "test-02",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.036547
+                },
+                {
+                  "session": "test-02",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.001675
+                },
+                {
+                  "session": "test-03",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.04823
+                },
+                {
+                  "session": "test-03",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.059747
+                },
+                {
+                  "session": "test-03",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.081867
+                },
+                {
+                  "session": "test-03",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.069703
+                },
+                {
+                  "session": "test-04",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.026308
+                },
+                {
+                  "session": "test-04",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.022795
+                },
+                {
+                  "session": "test-04",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.001476
+                },
+                {
+                  "session": "test-04",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.021274
+                },
+                {
+                  "session": "test-05",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.040189
+                },
+                {
+                  "session": "test-05",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.001813
+                },
+                {
+                  "session": "test-05",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.008249
+                },
+                {
+                  "session": "test-05",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.040416
+                },
+                {
+                  "session": "test-06",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.010202
+                },
+                {
+                  "session": "test-06",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.018014
+                },
+                {
+                  "session": "test-06",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.070933
+                },
+                {
+                  "session": "test-06",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.0021
+                },
+                {
+                  "session": "test-07",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.054539
+                },
+                {
+                  "session": "test-07",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.02266
+                },
+                {
+                  "session": "test-07",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.021696
+                },
+                {
+                  "session": "test-07",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.05195
+                },
+                {
+                  "session": "test-08",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.018161
+                },
+                {
+                  "session": "test-08",
+                  "level": 12,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.018691
+                },
+                {
+                  "session": "test-08",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.038084
+                },
+                {
+                  "session": "test-08",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.033172
+                }
+              ]
+            },
+            "level11_once": {
+              "top1_future_out_of_24": 8,
+              "accepted_correct_future_out_of_24": 0,
+              "top1_by_level_out_of_8": {
+                "11": 0,
+                "12": 2,
+                "16": 3,
+                "20": 3
+              },
+              "accepted_correct_by_level_out_of_8": {
+                "11": 0,
+                "12": 0,
+                "16": 0,
+                "20": 0
+              },
+              "old_level10_top1_out_of_8": 8,
+              "absent_false_positives_out_of_8": 0,
+              "mean_updated_regions_per_confirmation": 57.62,
+              "screens": [
+                {
+                  "session": "test-01",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.012319
+                },
+                {
+                  "session": "test-01",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.046436
+                },
+                {
+                  "session": "test-01",
+                  "level": 16,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.003644
+                },
+                {
+                  "session": "test-01",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.007488
+                },
+                {
+                  "session": "test-02",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.024007
+                },
+                {
+                  "session": "test-02",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.021589
+                },
+                {
+                  "session": "test-02",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.031006
+                },
+                {
+                  "session": "test-02",
+                  "level": 20,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.003768
+                },
+                {
+                  "session": "test-03",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.04823
+                },
+                {
+                  "session": "test-03",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.019802
+                },
+                {
+                  "session": "test-03",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.030567
+                },
+                {
+                  "session": "test-03",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.034971
+                },
+                {
+                  "session": "test-04",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.026308
+                },
+                {
+                  "session": "test-04",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.014626
+                },
+                {
+                  "session": "test-04",
+                  "level": 16,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.002376
+                },
+                {
+                  "session": "test-04",
+                  "level": 20,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.001336
+                },
+                {
+                  "session": "test-05",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.040189
+                },
+                {
+                  "session": "test-05",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.001115
+                },
+                {
+                  "session": "test-05",
+                  "level": 16,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.000635
+                },
+                {
+                  "session": "test-05",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.016282
+                },
+                {
+                  "session": "test-06",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.010202
+                },
+                {
+                  "session": "test-06",
+                  "level": 12,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.000384
+                },
+                {
+                  "session": "test-06",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.023312
+                },
+                {
+                  "session": "test-06",
+                  "level": 20,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.00033
+                },
+                {
+                  "session": "test-07",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.054539
+                },
+                {
+                  "session": "test-07",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.004211
+                },
+                {
+                  "session": "test-07",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.001281
+                },
+                {
+                  "session": "test-07",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.02304
+                },
+                {
+                  "session": "test-08",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.018161
+                },
+                {
+                  "session": "test-08",
+                  "level": 12,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.009725
+                },
+                {
+                  "session": "test-08",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.02088
+                },
+                {
+                  "session": "test-08",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.004015
+                }
+              ],
+              "vs_frozen_future": {
+                "wrong_to_right": 6,
+                "right_to_wrong": 0
+              }
+            },
+            "continual": {
+              "top1_future_out_of_24": 7,
+              "accepted_correct_future_out_of_24": 0,
+              "top1_by_level_out_of_8": {
+                "11": 0,
+                "12": 2,
+                "16": 2,
+                "20": 3
+              },
+              "accepted_correct_by_level_out_of_8": {
+                "11": 0,
+                "12": 0,
+                "16": 0,
+                "20": 0
+              },
+              "old_level10_top1_out_of_8": 8,
+              "absent_false_positives_out_of_8": 0,
+              "mean_updated_regions_per_confirmation": 32.5,
+              "screens": [
+                {
+                  "session": "test-01",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.012319
+                },
+                {
+                  "session": "test-01",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.046436
+                },
+                {
+                  "session": "test-01",
+                  "level": 16,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.00387
+                },
+                {
+                  "session": "test-01",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.009111
+                },
+                {
+                  "session": "test-02",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.024007
+                },
+                {
+                  "session": "test-02",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.021589
+                },
+                {
+                  "session": "test-02",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.007185
+                },
+                {
+                  "session": "test-02",
+                  "level": 20,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.000489
+                },
+                {
+                  "session": "test-03",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.04823
+                },
+                {
+                  "session": "test-03",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.019802
+                },
+                {
+                  "session": "test-03",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.024491
+                },
+                {
+                  "session": "test-03",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.02132
+                },
+                {
+                  "session": "test-04",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.026308
+                },
+                {
+                  "session": "test-04",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.014626
+                },
+                {
+                  "session": "test-04",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.001068
+                },
+                {
+                  "session": "test-04",
+                  "level": 20,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.004076
+                },
+                {
+                  "session": "test-05",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.040189
+                },
+                {
+                  "session": "test-05",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.001115
+                },
+                {
+                  "session": "test-05",
+                  "level": 16,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.000868
+                },
+                {
+                  "session": "test-05",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.014797
+                },
+                {
+                  "session": "test-06",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.010202
+                },
+                {
+                  "session": "test-06",
+                  "level": 12,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.000384
+                },
+                {
+                  "session": "test-06",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.027973
+                },
+                {
+                  "session": "test-06",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.006952
+                },
+                {
+                  "session": "test-07",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.054539
+                },
+                {
+                  "session": "test-07",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.004211
+                },
+                {
+                  "session": "test-07",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.000866
+                },
+                {
+                  "session": "test-07",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.022696
+                },
+                {
+                  "session": "test-08",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.018161
+                },
+                {
+                  "session": "test-08",
+                  "level": 12,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.009725
+                },
+                {
+                  "session": "test-08",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.021111
+                },
+                {
+                  "session": "test-08",
+                  "level": 20,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.005554
+                }
+              ],
+              "vs_frozen_future": {
+                "wrong_to_right": 5,
+                "right_to_wrong": 0
+              }
+            }
+          },
+          "validation_change_threshold": 0.09461773037910463,
+          "validation_presence_cutoff": 0.9932874143123627
+        }
+      }
+    },
+    {
+      "dataset": "data/upgrade-replication-dataset.json",
+      "results": {
+        "grid": {
+          "policies": {
+            "frozen": {
+              "top1_future_out_of_24": 5,
+              "accepted_correct_future_out_of_24": 0,
+              "top1_by_level_out_of_8": {
+                "11": 2,
+                "12": 1,
+                "16": 2,
+                "20": 2
+              },
+              "accepted_correct_by_level_out_of_8": {
+                "11": 0,
+                "12": 0,
+                "16": 0,
+                "20": 0
+              },
+              "old_level10_top1_out_of_8": 8,
+              "absent_false_positives_out_of_8": 2,
+              "mean_updated_regions_per_confirmation": 0,
+              "screens": [
+                {
+                  "session": "test-01",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.030043
+                },
+                {
+                  "session": "test-01",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.038696
+                },
+                {
+                  "session": "test-01",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.02418
+                },
+                {
+                  "session": "test-01",
+                  "level": 20,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.009781
+                },
+                {
+                  "session": "test-02",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.05297
+                },
+                {
+                  "session": "test-02",
+                  "level": 12,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.004936
+                },
+                {
+                  "session": "test-02",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.005616
+                },
+                {
+                  "session": "test-02",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.008963
+                },
+                {
+                  "session": "test-03",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.006237
+                },
+                {
+                  "session": "test-03",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.056442
+                },
+                {
+                  "session": "test-03",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.027966
+                },
+                {
+                  "session": "test-03",
+                  "level": 20,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.008292
+                },
+                {
+                  "session": "test-04",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.023079
+                },
+                {
+                  "session": "test-04",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.047352
+                },
+                {
+                  "session": "test-04",
+                  "level": 16,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.006772
+                },
+                {
+                  "session": "test-04",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.064385
+                },
+                {
+                  "session": "test-05",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.011334
+                },
+                {
+                  "session": "test-05",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.013877
+                },
+                {
+                  "session": "test-05",
+                  "level": 16,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.008641
+                },
+                {
+                  "session": "test-05",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.010006
+                },
+                {
+                  "session": "test-06",
+                  "level": 11,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.011398
+                },
+                {
+                  "session": "test-06",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.01574
+                },
+                {
+                  "session": "test-06",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.03883
+                },
+                {
+                  "session": "test-06",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.043803
+                },
+                {
+                  "session": "test-07",
+                  "level": 11,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.003118
+                },
+                {
+                  "session": "test-07",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.045498
+                },
+                {
+                  "session": "test-07",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.029751
+                },
+                {
+                  "session": "test-07",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.069908
+                },
+                {
+                  "session": "test-08",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.012145
+                },
+                {
+                  "session": "test-08",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.014203
+                },
+                {
+                  "session": "test-08",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.032958
+                },
+                {
+                  "session": "test-08",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.041531
+                }
+              ]
+            },
+            "level11_once": {
+              "top1_future_out_of_24": 7,
+              "accepted_correct_future_out_of_24": 1,
+              "top1_by_level_out_of_8": {
+                "11": 2,
+                "12": 2,
+                "16": 1,
+                "20": 4
+              },
+              "accepted_correct_by_level_out_of_8": {
+                "11": 0,
+                "12": 0,
+                "16": 0,
+                "20": 1
+              },
+              "old_level10_top1_out_of_8": 8,
+              "absent_false_positives_out_of_8": 2,
+              "mean_updated_regions_per_confirmation": 58.88,
+              "screens": [
+                {
+                  "session": "test-01",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.030043
+                },
+                {
+                  "session": "test-01",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.020461
+                },
+                {
+                  "session": "test-01",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.010447
+                },
+                {
+                  "session": "test-01",
+                  "level": 20,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.007069
+                },
+                {
+                  "session": "test-02",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.05297
+                },
+                {
+                  "session": "test-02",
+                  "level": 12,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.005413
+                },
+                {
+                  "session": "test-02",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.011832
+                },
+                {
+                  "session": "test-02",
+                  "level": 20,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.001465
+                },
+                {
+                  "session": "test-03",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.006237
+                },
+                {
+                  "session": "test-03",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.008293
+                },
+                {
+                  "session": "test-03",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.017686
+                },
+                {
+                  "session": "test-03",
+                  "level": 20,
+                  "top1": true,
+                  "accepted_correct": true,
+                  "target_margin": 0.009876
+                },
+                {
+                  "session": "test-04",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.023079
+                },
+                {
+                  "session": "test-04",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.018826
+                },
+                {
+                  "session": "test-04",
+                  "level": 16,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.013273
+                },
+                {
+                  "session": "test-04",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.040129
+                },
+                {
+                  "session": "test-05",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.011334
+                },
+                {
+                  "session": "test-05",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.00083
+                },
+                {
+                  "session": "test-05",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.001935
+                },
+                {
+                  "session": "test-05",
+                  "level": 20,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.001026
+                },
+                {
+                  "session": "test-06",
+                  "level": 11,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.011398
+                },
+                {
+                  "session": "test-06",
+                  "level": 12,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.008554
+                },
+                {
+                  "session": "test-06",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.023832
+                },
+                {
+                  "session": "test-06",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.015861
+                },
+                {
+                  "session": "test-07",
+                  "level": 11,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.003118
+                },
+                {
+                  "session": "test-07",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.018153
+                },
+                {
+                  "session": "test-07",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.005323
+                },
+                {
+                  "session": "test-07",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.039229
+                },
+                {
+                  "session": "test-08",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.012145
+                },
+                {
+                  "session": "test-08",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.018903
+                },
+                {
+                  "session": "test-08",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.024725
+                },
+                {
+                  "session": "test-08",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.027319
+                }
+              ],
+              "vs_frozen_future": {
+                "wrong_to_right": 3,
+                "right_to_wrong": 1
+              }
+            },
+            "continual": {
+              "top1_future_out_of_24": 6,
+              "accepted_correct_future_out_of_24": 1,
+              "top1_by_level_out_of_8": {
+                "11": 2,
+                "12": 2,
+                "16": 1,
+                "20": 3
+              },
+              "accepted_correct_by_level_out_of_8": {
+                "11": 0,
+                "12": 0,
+                "16": 0,
+                "20": 1
+              },
+              "old_level10_top1_out_of_8": 8,
+              "absent_false_positives_out_of_8": 2,
+              "mean_updated_regions_per_confirmation": 32.66,
+              "screens": [
+                {
+                  "session": "test-01",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.030043
+                },
+                {
+                  "session": "test-01",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.020461
+                },
+                {
+                  "session": "test-01",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.007481
+                },
+                {
+                  "session": "test-01",
+                  "level": 20,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.003179
+                },
+                {
+                  "session": "test-02",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.05297
+                },
+                {
+                  "session": "test-02",
+                  "level": 12,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.005413
+                },
+                {
+                  "session": "test-02",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.012418
+                },
+                {
+                  "session": "test-02",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.003452
+                },
+                {
+                  "session": "test-03",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.006237
+                },
+                {
+                  "session": "test-03",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.008293
+                },
+                {
+                  "session": "test-03",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.019414
+                },
+                {
+                  "session": "test-03",
+                  "level": 20,
+                  "top1": true,
+                  "accepted_correct": true,
+                  "target_margin": 0.009048
+                },
+                {
+                  "session": "test-04",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.023079
+                },
+                {
+                  "session": "test-04",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.018826
+                },
+                {
+                  "session": "test-04",
+                  "level": 16,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.006507
+                },
+                {
+                  "session": "test-04",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.037279
+                },
+                {
+                  "session": "test-05",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.011334
+                },
+                {
+                  "session": "test-05",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.00083
+                },
+                {
+                  "session": "test-05",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.004232
+                },
+                {
+                  "session": "test-05",
+                  "level": 20,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.000221
+                },
+                {
+                  "session": "test-06",
+                  "level": 11,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.011398
+                },
+                {
+                  "session": "test-06",
+                  "level": 12,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.008554
+                },
+                {
+                  "session": "test-06",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.023703
+                },
+                {
+                  "session": "test-06",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.005103
+                },
+                {
+                  "session": "test-07",
+                  "level": 11,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.003118
+                },
+                {
+                  "session": "test-07",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.018153
+                },
+                {
+                  "session": "test-07",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.001147
+                },
+                {
+                  "session": "test-07",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.016501
+                },
+                {
+                  "session": "test-08",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.012145
+                },
+                {
+                  "session": "test-08",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.018903
+                },
+                {
+                  "session": "test-08",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.011371
+                },
+                {
+                  "session": "test-08",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.011514
+                }
+              ],
+              "vs_frozen_future": {
+                "wrong_to_right": 2,
+                "right_to_wrong": 1
+              }
+            }
+          },
+          "validation_change_threshold": 0.10632772445678712,
+          "validation_presence_cutoff": 0.9886558055877686
+        },
+        "edge": {
+          "policies": {
+            "frozen": {
+              "top1_future_out_of_24": 5,
+              "accepted_correct_future_out_of_24": 0,
+              "top1_by_level_out_of_8": {
+                "11": 2,
+                "12": 1,
+                "16": 2,
+                "20": 2
+              },
+              "accepted_correct_by_level_out_of_8": {
+                "11": 0,
+                "12": 0,
+                "16": 0,
+                "20": 0
+              },
+              "old_level10_top1_out_of_8": 8,
+              "absent_false_positives_out_of_8": 2,
+              "mean_updated_regions_per_confirmation": 0,
+              "screens": [
+                {
+                  "session": "test-01",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.030043
+                },
+                {
+                  "session": "test-01",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.038696
+                },
+                {
+                  "session": "test-01",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.02418
+                },
+                {
+                  "session": "test-01",
+                  "level": 20,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.009781
+                },
+                {
+                  "session": "test-02",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.05297
+                },
+                {
+                  "session": "test-02",
+                  "level": 12,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.004936
+                },
+                {
+                  "session": "test-02",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.005616
+                },
+                {
+                  "session": "test-02",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.008963
+                },
+                {
+                  "session": "test-03",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.006237
+                },
+                {
+                  "session": "test-03",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.056442
+                },
+                {
+                  "session": "test-03",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.027966
+                },
+                {
+                  "session": "test-03",
+                  "level": 20,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.008292
+                },
+                {
+                  "session": "test-04",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.023079
+                },
+                {
+                  "session": "test-04",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.047352
+                },
+                {
+                  "session": "test-04",
+                  "level": 16,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.006772
+                },
+                {
+                  "session": "test-04",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.064385
+                },
+                {
+                  "session": "test-05",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.011334
+                },
+                {
+                  "session": "test-05",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.013877
+                },
+                {
+                  "session": "test-05",
+                  "level": 16,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.008641
+                },
+                {
+                  "session": "test-05",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.010006
+                },
+                {
+                  "session": "test-06",
+                  "level": 11,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.011398
+                },
+                {
+                  "session": "test-06",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.01574
+                },
+                {
+                  "session": "test-06",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.03883
+                },
+                {
+                  "session": "test-06",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.043803
+                },
+                {
+                  "session": "test-07",
+                  "level": 11,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.003118
+                },
+                {
+                  "session": "test-07",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.045498
+                },
+                {
+                  "session": "test-07",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.029751
+                },
+                {
+                  "session": "test-07",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.069908
+                },
+                {
+                  "session": "test-08",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.012145
+                },
+                {
+                  "session": "test-08",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.014203
+                },
+                {
+                  "session": "test-08",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.032958
+                },
+                {
+                  "session": "test-08",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.041531
+                }
+              ]
+            },
+            "level11_once": {
+              "top1_future_out_of_24": 7,
+              "accepted_correct_future_out_of_24": 1,
+              "top1_by_level_out_of_8": {
+                "11": 2,
+                "12": 2,
+                "16": 1,
+                "20": 4
+              },
+              "accepted_correct_by_level_out_of_8": {
+                "11": 0,
+                "12": 0,
+                "16": 0,
+                "20": 1
+              },
+              "old_level10_top1_out_of_8": 8,
+              "absent_false_positives_out_of_8": 3,
+              "mean_updated_regions_per_confirmation": 58.62,
+              "screens": [
+                {
+                  "session": "test-01",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.030043
+                },
+                {
+                  "session": "test-01",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.018455
+                },
+                {
+                  "session": "test-01",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.011674
+                },
+                {
+                  "session": "test-01",
+                  "level": 20,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.005387
+                },
+                {
+                  "session": "test-02",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.05297
+                },
+                {
+                  "session": "test-02",
+                  "level": 12,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.004542
+                },
+                {
+                  "session": "test-02",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.011453
+                },
+                {
+                  "session": "test-02",
+                  "level": 20,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.001003
+                },
+                {
+                  "session": "test-03",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.006237
+                },
+                {
+                  "session": "test-03",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.010178
+                },
+                {
+                  "session": "test-03",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.019217
+                },
+                {
+                  "session": "test-03",
+                  "level": 20,
+                  "top1": true,
+                  "accepted_correct": true,
+                  "target_margin": 0.00902
+                },
+                {
+                  "session": "test-04",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.023079
+                },
+                {
+                  "session": "test-04",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.017024
+                },
+                {
+                  "session": "test-04",
+                  "level": 16,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.013359
+                },
+                {
+                  "session": "test-04",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.039229
+                },
+                {
+                  "session": "test-05",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.011334
+                },
+                {
+                  "session": "test-05",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.001632
+                },
+                {
+                  "session": "test-05",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.002709
+                },
+                {
+                  "session": "test-05",
+                  "level": 20,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.000863
+                },
+                {
+                  "session": "test-06",
+                  "level": 11,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.011398
+                },
+                {
+                  "session": "test-06",
+                  "level": 12,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.008945
+                },
+                {
+                  "session": "test-06",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.023757
+                },
+                {
+                  "session": "test-06",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.016027
+                },
+                {
+                  "session": "test-07",
+                  "level": 11,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.003118
+                },
+                {
+                  "session": "test-07",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.019255
+                },
+                {
+                  "session": "test-07",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.006024
+                },
+                {
+                  "session": "test-07",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.04089
+                },
+                {
+                  "session": "test-08",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.012145
+                },
+                {
+                  "session": "test-08",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.019608
+                },
+                {
+                  "session": "test-08",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.024839
+                },
+                {
+                  "session": "test-08",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.026057
+                }
+              ],
+              "vs_frozen_future": {
+                "wrong_to_right": 3,
+                "right_to_wrong": 1
+              }
+            },
+            "continual": {
+              "top1_future_out_of_24": 6,
+              "accepted_correct_future_out_of_24": 1,
+              "top1_by_level_out_of_8": {
+                "11": 2,
+                "12": 2,
+                "16": 1,
+                "20": 3
+              },
+              "accepted_correct_by_level_out_of_8": {
+                "11": 0,
+                "12": 0,
+                "16": 0,
+                "20": 1
+              },
+              "old_level10_top1_out_of_8": 8,
+              "absent_false_positives_out_of_8": 2,
+              "mean_updated_regions_per_confirmation": 32.28,
+              "screens": [
+                {
+                  "session": "test-01",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.030043
+                },
+                {
+                  "session": "test-01",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.018455
+                },
+                {
+                  "session": "test-01",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.007933
+                },
+                {
+                  "session": "test-01",
+                  "level": 20,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.004328
+                },
+                {
+                  "session": "test-02",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.05297
+                },
+                {
+                  "session": "test-02",
+                  "level": 12,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.004542
+                },
+                {
+                  "session": "test-02",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.011757
+                },
+                {
+                  "session": "test-02",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.004454
+                },
+                {
+                  "session": "test-03",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.006237
+                },
+                {
+                  "session": "test-03",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.010178
+                },
+                {
+                  "session": "test-03",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.020429
+                },
+                {
+                  "session": "test-03",
+                  "level": 20,
+                  "top1": true,
+                  "accepted_correct": true,
+                  "target_margin": 0.009666
+                },
+                {
+                  "session": "test-04",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.023079
+                },
+                {
+                  "session": "test-04",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.017024
+                },
+                {
+                  "session": "test-04",
+                  "level": 16,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.005939
+                },
+                {
+                  "session": "test-04",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.038359
+                },
+                {
+                  "session": "test-05",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.011334
+                },
+                {
+                  "session": "test-05",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.001632
+                },
+                {
+                  "session": "test-05",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.004644
+                },
+                {
+                  "session": "test-05",
+                  "level": 20,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.000114
+                },
+                {
+                  "session": "test-06",
+                  "level": 11,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.011398
+                },
+                {
+                  "session": "test-06",
+                  "level": 12,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.008945
+                },
+                {
+                  "session": "test-06",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.023648
+                },
+                {
+                  "session": "test-06",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.008946
+                },
+                {
+                  "session": "test-07",
+                  "level": 11,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.003118
+                },
+                {
+                  "session": "test-07",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.019255
+                },
+                {
+                  "session": "test-07",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.003775
+                },
+                {
+                  "session": "test-07",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.024982
+                },
+                {
+                  "session": "test-08",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.012145
+                },
+                {
+                  "session": "test-08",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.019608
+                },
+                {
+                  "session": "test-08",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.010389
+                },
+                {
+                  "session": "test-08",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.010158
+                }
+              ],
+              "vs_frozen_future": {
+                "wrong_to_right": 2,
+                "right_to_wrong": 1
+              }
+            }
+          },
+          "validation_change_threshold": 0.09883654713630677,
+          "validation_presence_cutoff": 0.9886558055877686
+        },
+        "medoid": {
+          "policies": {
+            "frozen": {
+              "top1_future_out_of_24": 5,
+              "accepted_correct_future_out_of_24": 0,
+              "top1_by_level_out_of_8": {
+                "11": 2,
+                "12": 1,
+                "16": 2,
+                "20": 2
+              },
+              "accepted_correct_by_level_out_of_8": {
+                "11": 0,
+                "12": 0,
+                "16": 0,
+                "20": 0
+              },
+              "old_level10_top1_out_of_8": 8,
+              "absent_false_positives_out_of_8": 2,
+              "mean_updated_regions_per_confirmation": 0,
+              "screens": [
+                {
+                  "session": "test-01",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.030043
+                },
+                {
+                  "session": "test-01",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.038696
+                },
+                {
+                  "session": "test-01",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.02418
+                },
+                {
+                  "session": "test-01",
+                  "level": 20,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.009781
+                },
+                {
+                  "session": "test-02",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.05297
+                },
+                {
+                  "session": "test-02",
+                  "level": 12,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.004936
+                },
+                {
+                  "session": "test-02",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.005616
+                },
+                {
+                  "session": "test-02",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.008963
+                },
+                {
+                  "session": "test-03",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.006237
+                },
+                {
+                  "session": "test-03",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.056442
+                },
+                {
+                  "session": "test-03",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.027966
+                },
+                {
+                  "session": "test-03",
+                  "level": 20,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.008292
+                },
+                {
+                  "session": "test-04",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.023079
+                },
+                {
+                  "session": "test-04",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.047352
+                },
+                {
+                  "session": "test-04",
+                  "level": 16,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.006772
+                },
+                {
+                  "session": "test-04",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.064385
+                },
+                {
+                  "session": "test-05",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.011334
+                },
+                {
+                  "session": "test-05",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.013877
+                },
+                {
+                  "session": "test-05",
+                  "level": 16,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.008641
+                },
+                {
+                  "session": "test-05",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.010006
+                },
+                {
+                  "session": "test-06",
+                  "level": 11,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.011398
+                },
+                {
+                  "session": "test-06",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.01574
+                },
+                {
+                  "session": "test-06",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.03883
+                },
+                {
+                  "session": "test-06",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.043803
+                },
+                {
+                  "session": "test-07",
+                  "level": 11,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.003118
+                },
+                {
+                  "session": "test-07",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.045498
+                },
+                {
+                  "session": "test-07",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.029751
+                },
+                {
+                  "session": "test-07",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.069908
+                },
+                {
+                  "session": "test-08",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.012145
+                },
+                {
+                  "session": "test-08",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.014203
+                },
+                {
+                  "session": "test-08",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.032958
+                },
+                {
+                  "session": "test-08",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.041531
+                }
+              ]
+            },
+            "level11_once": {
+              "top1_future_out_of_24": 6,
+              "accepted_correct_future_out_of_24": 1,
+              "top1_by_level_out_of_8": {
+                "11": 2,
+                "12": 2,
+                "16": 1,
+                "20": 3
+              },
+              "accepted_correct_by_level_out_of_8": {
+                "11": 0,
+                "12": 0,
+                "16": 0,
+                "20": 1
+              },
+              "old_level10_top1_out_of_8": 8,
+              "absent_false_positives_out_of_8": 3,
+              "mean_updated_regions_per_confirmation": 58.62,
+              "screens": [
+                {
+                  "session": "test-01",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.030043
+                },
+                {
+                  "session": "test-01",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.018355
+                },
+                {
+                  "session": "test-01",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.010418
+                },
+                {
+                  "session": "test-01",
+                  "level": 20,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.005883
+                },
+                {
+                  "session": "test-02",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.05297
+                },
+                {
+                  "session": "test-02",
+                  "level": 12,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.005328
+                },
+                {
+                  "session": "test-02",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.011648
+                },
+                {
+                  "session": "test-02",
+                  "level": 20,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.001248
+                },
+                {
+                  "session": "test-03",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.006237
+                },
+                {
+                  "session": "test-03",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.008082
+                },
+                {
+                  "session": "test-03",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.018856
+                },
+                {
+                  "session": "test-03",
+                  "level": 20,
+                  "top1": true,
+                  "accepted_correct": true,
+                  "target_margin": 0.008847
+                },
+                {
+                  "session": "test-04",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.023079
+                },
+                {
+                  "session": "test-04",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.018909
+                },
+                {
+                  "session": "test-04",
+                  "level": 16,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.013725
+                },
+                {
+                  "session": "test-04",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.040887
+                },
+                {
+                  "session": "test-05",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.011334
+                },
+                {
+                  "session": "test-05",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.001422
+                },
+                {
+                  "session": "test-05",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.003925
+                },
+                {
+                  "session": "test-05",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.000163
+                },
+                {
+                  "session": "test-06",
+                  "level": 11,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.011398
+                },
+                {
+                  "session": "test-06",
+                  "level": 12,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.008869
+                },
+                {
+                  "session": "test-06",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.023963
+                },
+                {
+                  "session": "test-06",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.014596
+                },
+                {
+                  "session": "test-07",
+                  "level": 11,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.003118
+                },
+                {
+                  "session": "test-07",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.018659
+                },
+                {
+                  "session": "test-07",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.005957
+                },
+                {
+                  "session": "test-07",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.040317
+                },
+                {
+                  "session": "test-08",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.012145
+                },
+                {
+                  "session": "test-08",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.019686
+                },
+                {
+                  "session": "test-08",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.024717
+                },
+                {
+                  "session": "test-08",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.025929
+                }
+              ],
+              "vs_frozen_future": {
+                "wrong_to_right": 2,
+                "right_to_wrong": 1
+              }
+            },
+            "continual": {
+              "top1_future_out_of_24": 5,
+              "accepted_correct_future_out_of_24": 1,
+              "top1_by_level_out_of_8": {
+                "11": 2,
+                "12": 2,
+                "16": 1,
+                "20": 2
+              },
+              "accepted_correct_by_level_out_of_8": {
+                "11": 0,
+                "12": 0,
+                "16": 0,
+                "20": 1
+              },
+              "old_level10_top1_out_of_8": 8,
+              "absent_false_positives_out_of_8": 2,
+              "mean_updated_regions_per_confirmation": 33.0,
+              "screens": [
+                {
+                  "session": "test-01",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.030043
+                },
+                {
+                  "session": "test-01",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.018355
+                },
+                {
+                  "session": "test-01",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.008021
+                },
+                {
+                  "session": "test-01",
+                  "level": 20,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.00342
+                },
+                {
+                  "session": "test-02",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.05297
+                },
+                {
+                  "session": "test-02",
+                  "level": 12,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.005328
+                },
+                {
+                  "session": "test-02",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.010708
+                },
+                {
+                  "session": "test-02",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.004189
+                },
+                {
+                  "session": "test-03",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.006237
+                },
+                {
+                  "session": "test-03",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.008082
+                },
+                {
+                  "session": "test-03",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.020318
+                },
+                {
+                  "session": "test-03",
+                  "level": 20,
+                  "top1": true,
+                  "accepted_correct": true,
+                  "target_margin": 0.008542
+                },
+                {
+                  "session": "test-04",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.023079
+                },
+                {
+                  "session": "test-04",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.018909
+                },
+                {
+                  "session": "test-04",
+                  "level": 16,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.005509
+                },
+                {
+                  "session": "test-04",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.037566
+                },
+                {
+                  "session": "test-05",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.011334
+                },
+                {
+                  "session": "test-05",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.001422
+                },
+                {
+                  "session": "test-05",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.00464
+                },
+                {
+                  "session": "test-05",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.000103
+                },
+                {
+                  "session": "test-06",
+                  "level": 11,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.011398
+                },
+                {
+                  "session": "test-06",
+                  "level": 12,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.008869
+                },
+                {
+                  "session": "test-06",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.02347
+                },
+                {
+                  "session": "test-06",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.006909
+                },
+                {
+                  "session": "test-07",
+                  "level": 11,
+                  "top1": true,
+                  "accepted_correct": false,
+                  "target_margin": 0.003118
+                },
+                {
+                  "session": "test-07",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.018659
+                },
+                {
+                  "session": "test-07",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.002196
+                },
+                {
+                  "session": "test-07",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.021
+                },
+                {
+                  "session": "test-08",
+                  "level": 11,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.012145
+                },
+                {
+                  "session": "test-08",
+                  "level": 12,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.019686
+                },
+                {
+                  "session": "test-08",
+                  "level": 16,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.009323
+                },
+                {
+                  "session": "test-08",
+                  "level": 20,
+                  "top1": false,
+                  "accepted_correct": false,
+                  "target_margin": -0.007656
+                }
+              ],
+              "vs_frozen_future": {
+                "wrong_to_right": 1,
+                "right_to_wrong": 1
+              }
+            }
+          },
+          "validation_change_threshold": 0.09797418713569642,
+          "validation_presence_cutoff": 0.9886558055877686
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "dataset": "data/upgrade-confirmation-dataset.json",
+  "model": "frozen DINOv3 ViT-S/16 layer 3, 448x448 input, 28x28 patches",
+  "control": "196 cores, identical feature growth, soft membership, patch-level score, validation calibration, online update, three candidate proposals",
+  "rules": {
+    "grid": "every second patch, no image-dependent choice",
+    "edge": "within 3x3 around each grid site, lowest maximum neighbor DINO cosine difference",
+    "medoid": "within the same 3x3, highest similarity to weighted 5x5 local DINO feature prototype; no edge calculation in selection"
+  },
+  "edge_vs_medoid_identical_sites_first_test_session_out_of_196": 40,
+  "results": {
+    "grid": {
+      "metrics": {
+        "first_level11_top1_out_of_8": 0,
+        "future_top1_out_of_24": 7,
+        "frozen_future_top1_out_of_24": 2,
+        "future_top1_by_level_out_of_8": {
+          "12": 2,
+          "16": 2,
+          "20": 3
+        },
+        "old_level10_top1_out_of_8": 8,
+        "absent_false_positives_out_of_8": 0,
+        "mean_click_attempts": 2.344,
+        "level11_updates_by_session": [
+          48,
+          59,
+          59,
+          59,
+          59,
+          59,
+          59,
+          56
+        ]
+      },
+      "validation_change_threshold": 0.10331628918647766,
+      "validation_presence_cutoff": 0.9932874143123627,
+      "seed_geometry_first_test_session": {
+        "same_as_grid_out_of_196": 196,
+        "mean_displacement_from_grid_patches": 0.0
+      }
+    },
+    "edge": {
+      "metrics": {
+        "first_level11_top1_out_of_8": 0,
+        "future_top1_out_of_24": 6,
+        "frozen_future_top1_out_of_24": 2,
+        "future_top1_by_level_out_of_8": {
+          "12": 1,
+          "16": 2,
+          "20": 3
+        },
+        "old_level10_top1_out_of_8": 8,
+        "absent_false_positives_out_of_8": 0,
+        "mean_click_attempts": 2.344,
+        "level11_updates_by_session": [
+          59,
+          59,
+          59,
+          59,
+          59,
+          59,
+          59,
+          59
+        ]
+      },
+      "validation_change_threshold": 0.09672003984451294,
+      "validation_presence_cutoff": 0.9932874143123627,
+      "seed_geometry_first_test_session": {
+        "same_as_grid_out_of_196": 17,
+        "mean_displacement_from_grid_patches": 1.074
+      }
+    },
+    "medoid": {
+      "metrics": {
+        "first_level11_top1_out_of_8": 0,
+        "future_top1_out_of_24": 7,
+        "frozen_future_top1_out_of_24": 2,
+        "future_top1_by_level_out_of_8": {
+          "12": 2,
+          "16": 2,
+          "20": 3
+        },
+        "old_level10_top1_out_of_8": 8,
+        "absent_false_positives_out_of_8": 0,
+        "mean_click_attempts": 2.344,
+        "level11_updates_by_session": [
+          48,
+          59,
+          59,
+          59,
+          59,
+          59,
+          59,
+          59
+        ]
+      },
+      "validation_change_threshold": 0.09461773037910463,
+      "validation_presence_cutoff": 0.9932874143123627,
+      "seed_geometry_first_test_session": {
+        "same_as_grid_out_of_196": 82,
+        "mean_displacement_from_grid_patches": 0.628
+      }
+    }
+  },
+  "limitations": "Synthetic game; known proposals and game confirmation feedback; datasets were explored before; not a fresh blind holdout"
+}
