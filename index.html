@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rune Hunt Lab</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="upgrade.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div class="brand"><span class="brand-icon">✦</span><div><strong>RUNE HUNT LAB</strong><small>개체 인식 비교용 미니 게임</small></div></div>
+      <div class="top-actions"><span class="tag">Seed <b id="seedValue">—</b></span><button id="newGameBtn">새 게임</button></div>
+    </header>
+    <section class="content">
+      <div class="stage">
+        <canvas id="game" width="960" height="576" aria-label="룬 수집 게임 화면"></canvas>
+        <div class="stage-footer"><span><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> / 방향키 이동</span><span><kbd>Space</kbd> 주변 룬 수집</span><span><kbd>R</kbd> 현재 방 다시 시작</span></div>
+      </div>
+      <aside class="panel">
+        <a class="upgrade-link" href="upgrade.html">새 실험: 특성 강화 창 10→11레벨 전환 ↗</a>
+        <div class="eyebrow">MISSION 01 / 탐험</div>
+        <h1>닮은 룬을<br>구별하라</h1>
+        <p class="intro">표시된 순서대로 진짜 룬을 모으세요. 방마다 배경과 장식이 바뀌고, 비슷한 가짜 룬이 섞여 있습니다.</p>
+        <div class="mission-card">
+          <div class="mini-label">현재 목표</div>
+          <div class="target-row"><div id="targetGlyph" class="target-glyph">✦</div><div><strong id="targetName">태양 룬</strong><small id="targetHint">빛나는 여섯 갈래 중심을 찾아보세요</small></div></div>
+          <div id="progressDots" class="progress-dots"></div>
+        </div>
+        <div class="stat-grid"><div><span>방</span><strong id="roomStat">1 / 3</strong></div><div><span>수집</span><strong id="scoreStat">0 / 12</strong></div><div><span>실수</span><strong id="mistakeStat">0</strong></div></div>
+        <button id="nextRoomBtn" class="primary" disabled>다음 방으로 이동 →</button>
+        <div id="message" class="message" role="status">첫 번째 룬 가까이 이동해 Space를 누르세요.</div>
+        <div class="divider"></div>
+        <div class="eyebrow">VISION BENCHMARK / 데이터</div>
+        <h2>같은 화면으로 비교</h2>
+        <p class="micro">독립된 게임 세션을 훈련·검증·테스트로 나눠 저장합니다. 화면 PNG와 개체 위치·상태 정답이 함께 담깁니다.</p>
+        <button id="exportBtn" class="secondary">비교 데이터 다운로드</button>
+        <div id="exportStatus" class="micro status">훈련 6 · 검증 3 · 테스트 6세션, 세션당 3화면</div>
+      </aside>
+    </section>
+    <footer>게임 화면만 인식 입력으로 사용하고, 개체 ID와 좌표는 채점에만 사용합니다.</footer>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>

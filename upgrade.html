@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>특성 강화 창 실험 | Rune Hunt Lab</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="upgrade.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div class="brand"><span class="brand-icon">✦</span><div><strong>RUNE HUNT LAB</strong><small>강화 창의 외형 변화와 동일성 실험</small></div></div>
+      <div class="top-actions"><a class="back-link" href="index.html">← 룬 탐험</a><span class="tag">Seed <b id="upgradeSeed">—</b></span></div>
+    </header>
+    <section class="content">
+      <div class="stage">
+        <canvas id="upgradeGame" width="960" height="576" aria-label="특성 강화 창 선택 게임"></canvas>
+        <div class="stage-footer"><span>세 창 중 같은 강화 창을 클릭하세요</span><span>10 → 11레벨에서 선택한 변화가 발생합니다</span></div>
+      </div>
+      <aside class="panel">
+        <div class="eyebrow">MISSION 02 / 상태 변화</div>
+        <h1>같은 창을<br>다시 찾아라</h1>
+        <p class="intro">세 창의 위치는 계속 바뀝니다. 같은 강화 창을 찾아 누르면 레벨이 올라갑니다. 11레벨부터 내부가 달라지지만 창의 바깥 표식은 유지됩니다.</p>
+        <label class="scenario-label" for="upgradeScenario">11레벨 변화 실험</label>
+        <select id="upgradeScenario" class="scenario-select">
+          <option value="effect">내부 이펙트만 변화</option>
+          <option value="layout">내부 구성 요소 재배치</option>
+          <option value="layout_mimic">재배치 + 비슷한 방해 창</option>
+        </select>
+        <p id="upgradeScenarioHelp" class="micro">선택한 조건은 새 강화 세션부터 적용됩니다.</p>
+        <div class="mission-card">
+          <div class="mini-label">현재 강화 단계</div>
+          <div class="level-number">Lv. <strong id="upgradeLevel">1</strong> <span>/ 20</span></div>
+          <div class="level-track"><i id="levelProgress"></i></div>
+        </div>
+        <div class="stat-grid"><div><span>성공</span><strong id="upgradeHits">0</strong></div><div><span>실수</span><strong id="upgradeMisses">0</strong></div><div><span>전환</span><strong>11레벨</strong></div></div>
+        <button id="upgradeRestart" class="primary">새 강화 세션 시작</button>
+        <div id="upgradeMessage" class="message" role="status">바깥 표식으로 같은 창을 찾아보세요.</div>
+        <div class="divider"></div>
+        <div class="eyebrow">DINOv2 / DINOv3</div>
+        <h2>부분별 특징 실험</h2>
+        <p class="micro">세 위치의 창을 같은 방식으로 검사합니다. 훈련·검증은 1~10레벨만, 테스트는 10→11 전환과 12~20레벨을 포함합니다. 위치와 ID 정답은 채점에만 사용합니다. 후속 실험 결과는 <a href="docs/RESEARCH_LOG.md">연구 기록</a>에 있습니다.</p>
+        <button id="upgradeExport" class="secondary">기본 조건 데이터 다운로드</button>
+        <div id="upgradeExportStatus" class="micro status">기본 조건: 훈련 8 · 검증 4 · 테스트 8세션</div>
+        <p class="micro">대용량 생성 데이터는 저장소에 포함하지 않습니다. 재생성 방법은 README에 있습니다.</p>
+      </aside>
+    </section>
+    <footer>이 실험은 정해진 세 창 후보 사이의 재탐지입니다. 임의 위치를 찾는 범용 탐지기로 해석하지 마세요.</footer>
+  </main>
+  <script src="upgrade.js"></script>
+  <script src="live_upgrade.js"></script>
+</body>
+</html>

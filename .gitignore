@@ -1,0 +1,19 @@
+# Generated screenshots, datasets, model weights and experiment runs
+data/
+models/
+results/generated/
+runs/
+*.pt
+*.pth
+*.safetensors
+*.onnx
+*.ckpt
+*.mp4
+*.webm
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.DS_Store
+Thumbs.db

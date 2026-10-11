@@ -1,0 +1,6 @@
+# Install a PyTorch build appropriate for your CPU/CUDA setup first.
+numpy>=2.0,<3
+Pillow>=11,<13
+opencv-python>=4.10,<6
+matplotlib>=3.9,<4
+transformers>=4.57,<5
